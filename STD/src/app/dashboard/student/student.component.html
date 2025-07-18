@@ -1,0 +1,46 @@
+
+<div class="student-container">
+  <div class="header">
+    <h2>Welcome Student</h2>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  <form [formGroup]="submissionForm" (ngSubmit)="onSubmit()">
+    <label>Name</label>
+    <input formControlName="name" />
+
+    <label>Batch</label>
+    <input formControlName="batch" type="text" />
+    <div *ngIf="f['batch'].touched && f['batch'].invalid" class="error">
+      <small>Batch is required</small>
+    </div>
+
+    <label>Course</label>
+    <select formControlName="course">
+      <option value="">-- Select Course --</option>
+      <option value="Web Development">Web Development</option>
+      <option value="AI">AI</option>
+      <option value="Data Science">Data Science</option>
+      <option value="Networking">Networking</option>
+    </select>
+    <div *ngIf="f['course'].touched && f['course'].invalid" class="error">
+      <small>Course is required</small>
+    </div>
+
+    <label>Remarks</label>
+    <textarea formControlName="remarks" rows="3"></textarea>
+
+    <button type="submit">{{ currentSubmission ? 'Update' : 'Submit' }}</button>
+  </form>
+</div>
+
+<div *ngIf="currentSubmission && !isEditing" class="card">
+  <h3>Your Submitted Course</h3>
+  <p><strong>Name:</strong> {{ submissionForm.get('name')?.value }}</p>
+  <p><strong>Batch:</strong> {{ submissionForm.get('batch')?.value }}</p>
+  <p><strong>Course:</strong> {{ submissionForm.get('course')?.value }}</p>
+  <p><strong>Remarks:</strong> {{ submissionForm.get('remarks')?.value }}</p>
+  <button (click)="onDelete()">Delete</button>
+  <button (click)="onEdit()">Edit</button>
+</div>
+

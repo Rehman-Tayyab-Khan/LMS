@@ -1,0 +1,41 @@
+// Minimal Black/White/Grey Theme for Home Page
+$black: #111;
+$white: #fff;
+$grey: #e0e0e0;
+$text: #222;
+
+.home-container {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: $white;
+
+  h1 {
+    font-size: 2.5rem;
+    color: $black;
+    border: 2px solid $grey;
+    border-radius: 8px;
+    padding: 10px 20px;
+    background: $white;
+    box-shadow: none;
+  }
+}
+
+.header-buttons button {
+  margin-left: 12px;
+  padding: 10px 18px;
+  background: $black;
+  border: none;
+  border-radius: 6px;
+  color: $white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: none;
+  &:hover {
+    background: $grey;
+    color: $black;
+  }
+}

@@ -1,0 +1,31 @@
+// Minimal Black/White/Grey Theme for Footer
+$black: #111;
+$white: #fff;
+$grey: #e0e0e0;
+
+.app-footer {
+  background: $grey;
+  color: $black;
+  border-radius: 8px 8px 0 0;
+  padding: 16px 24px;
+  text-align: center;
+  box-shadow: none;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .footer-links a {
+    margin-left: 16px;
+    color: $black;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    &:hover {
+      color: $white;
+    }
+  }
+}

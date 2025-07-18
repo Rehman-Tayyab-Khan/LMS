@@ -1,0 +1,128 @@
+// Minimal Black/White/Grey Theme for Student Page
+$black: #111;
+$white: #fff;
+$grey: #e0e0e0;
+$text: #222;
+$danger: #e74c3c;
+
+.student-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  background: $white;
+  border-radius: 8px;
+  box-shadow: none;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      color: $black;
+    }
+    .logout-btn {
+      background: $black;
+      color: $white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s;
+      box-shadow: none;
+      &:hover {
+        background: $grey;
+        color: $black;
+      }
+    }
+  }
+
+  form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    label {
+      font-weight: 500;
+      color: $black;
+      margin-bottom: 2px;
+    }
+    input,
+    select,
+    textarea {
+      background: $white;
+      border: 1px solid $grey;
+      border-radius: 4px;
+      padding: 10px 12px;
+      font-size: 1rem;
+      color: $text;
+      margin-bottom: 4px;
+      transition: border 0.2s;
+      &:focus {
+        border-color: $black;
+        outline: none;
+      }
+    }
+    textarea {
+      resize: vertical;
+    }
+    .error {
+      color: $danger;
+      font-size: 0.95em;
+      margin-top: -8px;
+      margin-bottom: 8px;
+    }
+    button[type="submit"] {
+      background: $black;
+      color: $white;
+      padding: 12px 0;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: none;
+      transition: background 0.2s;
+      &:hover {
+        background: $grey;
+        color: $black;
+      }
+    }
+  }
+}
+
+.card {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: $grey;
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid $grey;
+  h3 {
+    color: $black;
+    margin-bottom: 16px;
+  }
+  p {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+  button {
+    background: $black;
+    color: $white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-right: 10px;
+    margin-top: 10px;
+    transition: background 0.2s;
+    box-shadow: none;
+    &:hover {
+      background: $white;
+      color: $black;
+    }
+  }
+}
+

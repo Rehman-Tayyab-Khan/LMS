@@ -1,0 +1,29 @@
+
+<div class="signup-container">
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <h2>Sign Up</h2>
+  <label>Name</label>
+  <input formControlName="name" type="text" />
+  <div *ngIf="f['name'].touched && f['name'].invalid">
+    <div *ngIf="f['name'].errors?.['required']" class="error">Name is required</div>
+    <div *ngIf="f['name'].errors?.['minlength']" class="error">Min 3 characters</div>
+  </div>
+
+  <label>Email</label>
+  <input formControlName="email" type="email" />
+  <div *ngIf="f['email'].touched && f['email'].invalid">
+    <div *ngIf="f['email'].errors?.['required']" class="error">Email is required</div>
+    <div *ngIf="f['email'].errors?.['email']" class="error">Invalid email format</div>
+  </div>
+
+  <label>Password</label>
+  <input formControlName="password" type="password" />
+  <div *ngIf="f['password'].touched && f['password'].invalid">
+    <div *ngIf="f['password'].errors?.['required']" class="error">Password is required</div>
+    <div *ngIf="f['password'].errors?.['minlength']" class="error">Min 8 characters</div>
+    <div *ngIf="f['password'].errors?.['maxlength']" class="error">Max 12 characters</div>
+  </div>
+
+  <button type="submit">Register</button>
+</form>
+</div>

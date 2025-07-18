@@ -1,0 +1,82 @@
+<div class="teacher-container">
+  <div class="header">
+    <h2>Welcome Teacher</h2>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <label>Name</label>
+    <input formControlName="name" 
+    />
+    <div *ngIf="f['name'].touched && f['name'].invalid" class="error">
+      <small *ngIf="f['name'].errors?.['required']">Name is required</small>
+      <small *ngIf="f['name'].errors?.['minlength']">Min 3 characters</small>
+    </div>
+
+    <label>Email</label>
+    <input formControlName="email" />
+    <div *ngIf="f['email'].touched && f['email'].invalid" class="error">
+      <small *ngIf="f['email'].errors?.['required']">Email is required</small>
+      <small *ngIf="f['email'].errors?.['email']">Invalid email</small>
+    </div>
+
+    <label>Batch</label>
+    <input formControlName="batch" />
+    <div *ngIf="f['batch'].touched && f['batch'].invalid" class="error">
+      <small>Batch is required</small>
+    </div>
+
+    <label>Course</label>
+    <input formControlName="course" />
+    <div *ngIf="f['course'].touched && f['course'].invalid" class="error">
+      <small>Course is required</small>
+    </div>
+
+    <button type="submit">{{ editIndex !== null ? 'Update Student' : 'Add Student' }}</button>
+  </form>
+
+  <hr />
+  <div class="student-entries">
+  <h3>Student Entries</h3>  
+
+  <div *ngIf="students.length === 0">No student added yet.</div>
+
+  <table *ngIf="students.length > 0">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Batch</th>
+        <th>Course</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.batch }}</td>
+        <td>{{ student.course }}</td>
+        <td>
+          <button (click)="onEdit(i)">Edit</button>
+          <button (click)="onDelete(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+<div class="pagination-controls" *ngIf="totalItems > pageSize">
+  <button [disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)">
+    Prev
+  </button>
+
+  <span>Page {{ currentPage }} of {{ totalPages() }}</span>
+
+  <button [disabled]="currentPage === totalPages()" (click)="goToPage(currentPage + 1)">
+    Next
+  </button>
+</div>
+</div>
